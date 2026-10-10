@@ -19,16 +19,47 @@ class SLL:
 
     def print(self):
         temp=self.head
-        print("printing Node")
+        print("printing Node : ",end=" ")
         while(temp):
-            print(temp.data)
+            print(temp.data,end="  ")
             temp=temp.next
+        print()
+
+
+
+#reverse the Link List
+
+    def reverse(self):
+        prev = None
+        temp = self.head
+
+        while temp is not None:
+            next_node = temp.next
+            temp.next = prev
+            prev = temp
+            temp = next_node
+
+        self.head = prev
+        print("Linked List reversed successfully")
+
+
 
 
 #Find Middle node and print its value
 
-    def midval(self):
-        
+    def find_middle(self):
+        if self.head is None:
+            print("List is empty")
+            return
+
+        slow = self.head
+        fast = self.head
+
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+
+        print("Middle node value is:", slow.data)
 
 
 
@@ -50,6 +81,9 @@ class SLL:
             temp.next=New_node
             print("node insert ho gaya")
 
+
+
+
 #Delete node
 #deleting the node
 
@@ -68,8 +102,22 @@ class SLL:
             prev.next=temp.next
             temp=None
             print("value is deleterd",val)
-        
 
+
+
+
+#
+    def con_sum(self):
+        temp = self.head
+
+        if self.head == None:
+            print("Linked List is empty!")
+            return
+
+        while temp.next:
+            total = temp.data + temp.next.data
+            print(temp.data, "+", temp.next.data, "=", total)
+            temp = temp.next
 
 
 
@@ -87,12 +135,16 @@ List.append(n2)
 List.append(Node(70))
 
 List.print()
+List.reverse()
+List.print()
+List.find_middle()
 List.insert(Node(555),3)
 List.insert(Node(777),5)
 List.print()
 List.delete(30)
 List.delete(70)
 List.print()
+List.con_sum()
 
 
 
