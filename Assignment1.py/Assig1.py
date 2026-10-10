@@ -14,6 +14,24 @@ class SLL:
                 temp=temp.next
             temp.next=new_node
 
+#printing a Link List
+#Traverse and print the node values
+
+    def print(self):
+        temp=self.head
+        print("printing Node")
+        while(temp):
+            print(temp.data)
+            temp=temp.next
+
+
+#Find Middle node and print its value
+
+    def midval(self):
+        
+
+
+
 
 #Insert node at a specific position
 
@@ -53,15 +71,7 @@ class SLL:
         
 
 
-#printing a Link List
-#Traverse and print the node values
 
-    def print(self):
-        temp=self.head
-        print("printing Node")
-        while(temp):
-            print(temp.data)
-            temp=temp.next
 
 
 List=SLL()
