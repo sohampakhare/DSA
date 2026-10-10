@@ -16,7 +16,7 @@ class SLL:
                 temp=temp.next
             temp.next=new_node
     def insert(self ,new_node,pos):
-        if pos ==1:#insert node at first position
+        if pos ==1:                      #insert node at first position
             new_node.next= self.head
             self.head=new_node
         else:#insert node from 2nd to last position
