@@ -70,7 +70,23 @@ class SLL:
         prev.next=temp.next
         temp=None
 
+#delete first and last node
 
+    def fl_del(self):
+
+        self.head=self.head.next
+        print("first nodde delete")
+        temp=self.head
+        while temp.next:
+            prev=temp
+            temp=temp.next
+
+        prev.next=None
+        temp=None
+        print("Last nodde delete")
+
+            
+            
 
 
 
@@ -88,6 +104,8 @@ List1.append(n2)
 List1.append(Node(30))
 List1.append(Node(40))
 List1.insert(Node(555),3)
+List1.append(Node(60))
+List1.append(Node(70))
 
 List1.print()
 List1.delete(30)
@@ -96,6 +114,9 @@ List1.rev()
 List1.print()
 List1.find_mid()
 List1.print()
+List1.fl_del()
+List1.print()
+
 
 
 
