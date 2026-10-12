@@ -41,7 +41,7 @@ class SLL:
         self.head=prev
 
 
-
+#deleting the Linl list
 
     def delete(self,val):
         temp=self.head
@@ -58,6 +58,19 @@ class SLL:
             prev.next=temp.next
             temp=None
             print("value is deleted")
+#find middle node and delete the Noide
+
+    def find_mid(self):
+        temp=temp1=self.head
+        while temp1 and temp1.next:
+            prev=temp
+            temp=temp.next
+            temp1=temp.next.next
+        print("middle Node ",temp.data)
+        prev.next=temp.next
+        temp=None
+
+
 
 
 
@@ -80,6 +93,8 @@ List1.print()
 List1.delete(30)
 List1.print()
 List1.rev()
+List1.print()
+List1.find_mid()
 List1.print()
 
 
