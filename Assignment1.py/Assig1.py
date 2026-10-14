@@ -3,7 +3,7 @@ class Node:
         self.data=value
         self.next=None
 class SLL:
-    def __init__(self):    #appeand a New  Node
+    def __init__(self):    #appeand a New  Node  #appeand a New  Node
         self.head=None
     def append(self,new_node):
         if self.head==None:
