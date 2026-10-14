@@ -21,11 +21,13 @@ class SLL:
     def insert(self ,new_node,pos):
 
         if pos ==1:                      #insert node at first position
-            new_node.next= self.head
-            self.head=new_node
+            
             temp=self.head
             while temp.next!=self.head:    #find the last node
                 temp=temp.next
+
+            new_node.next= self.head
+            self.head=new_node
             temp.next=self.head
 
         else:#insert node from 2nd to last position
