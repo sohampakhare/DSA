@@ -7,7 +7,7 @@ class SLL:
     def __init__(self):
         self.head=None
 
-    def append(self,new_node):
+    def append(self,new_node):#inseret Node  at the end 
         if self.head==None:
             self.head=new_node
         else:
@@ -19,13 +19,19 @@ class SLL:
 
 
     def insert(self ,new_node,pos):
+
         if pos ==1:                      #insert node at first position
             new_node.next= self.head
             self.head=new_node
+            temp=self.head
+            while temp.next!=self.head:    #find the last node
+                temp=temp.next
+            temp.next=self.head
+
         else:#insert node from 2nd to last position
             p=1
             temp=self.head
-            while(p!=pos-1):
+            while(p!=pos-1 and temp!=self.head):
                 temp=temp.next
                 p+=1
             new_node.next=temp.next
@@ -34,12 +40,16 @@ class SLL:
         temp=self.head
         prev=None
         if temp.data==val:#delete first value
+          
+            while temp.next!=self.head:
+                temp=temp.next
             self.head=self.head.next
+            temp.next=self.head
         else:
-            while(temp.data!=val):
+            while(temp.data!=val and temp):
                 prev=temp
                 temp=temp.next
-                if temp==None:
+                if temp==self.head:
                     print("value is not present in the List")
                     return
             prev.next=temp.next
@@ -64,12 +74,16 @@ List1.append(n1)
 List1.append(n2)
 List1.append(Node(30))
 List1.append(Node(40))
-List1.insert(Node(555),3)
+#List1.insert(Node(555),3)
 List1.append(Node(60))
-List1.insert(Node(777),4)
+#List1.insert(Node(777),4)
 
 List1.print()
-List1.delete(30)
+List1.delete(60)
+List1.print()
+List1.insert(Node(555),1)
+#List1.insert(Node(555),6)
+#List1.delete(30)
 List1.print()
 
 
