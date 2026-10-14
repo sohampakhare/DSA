@@ -12,9 +12,12 @@ class SLL:
             self.head=new_node
         else:
             temp=self.head
-            while(temp.next):
+            while(temp.next!=self.head):
                 temp=temp.next
             temp.next=new_node
+        new_node.next=self.head
+
+
     def insert(self ,new_node,pos):
         if pos ==1:                      #insert node at first position
             new_node.next= self.head
@@ -47,10 +50,13 @@ class SLL:
 
     def print(self):
         temp=self.head
-        while(temp):
-            print(temp.data)
+       
+        while(True):
+            print(temp.data,end=" ")
             temp=temp.next
-
+            if temp==self.head:
+                break
+        print()
 List1 =SLL()
 n1=Node(10)
 n2=Node(20)
@@ -59,6 +65,8 @@ List1.append(n2)
 List1.append(Node(30))
 List1.append(Node(40))
 List1.insert(Node(555),3)
+List1.append(Node(60))
+List1.insert(Node(777),4)
 
 List1.print()
 List1.delete(30)
