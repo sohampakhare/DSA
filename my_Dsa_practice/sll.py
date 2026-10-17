@@ -28,6 +28,25 @@ class SLL:
                 p+=1
             new_node.next=temp.next
             temp.next=new_node
+
+    def delete(self,val):
+        temp=self.head
+        prev=None
+        if temp.data==val:#delete first value
+            self.head=self.head.next
+        else:
+            while(temp.data!=val):
+                prev=temp
+                temp=temp.next
+                if temp==None:
+                    print("value is not present in the List")
+                    return
+            prev.next=temp.next
+            temp=None
+            print("value is deleted")
+
+
+
     def print(self):
         temp=self.head
         while(temp):
