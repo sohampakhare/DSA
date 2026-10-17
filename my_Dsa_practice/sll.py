@@ -45,7 +45,15 @@ class SLL:
             temp=None
             print("value is deleted")
 
-
+    def find_mid(self):
+        temp=temp1=self.head
+        while temp1 and temp1.next:
+            prev=temp
+            temp=temp.next
+            temp1=temp.next.next
+        print("middle Node ",temp.data)
+        prev.next=temp.next
+        temp=None
 
     def print(self):
         temp=self.head
