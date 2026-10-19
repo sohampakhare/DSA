@@ -56,6 +56,16 @@ class SLL:
                 temp.next.prev=temp.prev
             temp=None
             print("value is deleted :-",val)
+#w.a.f to print node values of DLL in reverse order 
+    def printrev(self):
+        temp=self.head
+        print(" \n list element in revserse ordeer : ",end="  ")
+        while temp.next:
+            temp=temp.next
+        while temp:
+            print(temp.data,end=" ")
+            temp=temp.prev
+
 
 
 
@@ -81,7 +91,9 @@ List1.insert(Node(888),10)
 List1.print()
 List1.delete(30)
 List1.delete(888)
+
 List1.print()
+List1.printrev()
 
 
 
