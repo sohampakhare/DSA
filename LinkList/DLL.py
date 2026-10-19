@@ -36,21 +36,26 @@ class SLL:
             new_node.prev=temp
             new_node.next=temp.next
             temp.next=new_node
+
+
     def delete(self,val):
         temp=self.head
-        prev=None
+      
         if temp.data==val:#delete first value
             self.head=self.head.next
+            self.head.prev=None
         else:
-            while(temp.data!=val):
-                prev=temp
+            while(temp.data!=val and temp):
+                
                 temp=temp.next
                 if temp==None:
                     print("value is not present in the List")
                     return
-            prev.next=temp.next
+            temp.prev.next=temp.next
+            if temp.next:
+                temp.next.prev=temp.prev
             temp=None
-            print("value is deleted")
+            print("value is deleted :-",val)
 
 
 
@@ -59,6 +64,7 @@ class SLL:
         while(temp):
             print(temp.data,end=" ")
             temp=temp.next
+        print()
 
 List1 =SLL()
 n1=Node(10)
@@ -73,8 +79,9 @@ List1.insert(Node(111),3)
 List1.insert(Node(888),10)
 
 List1.print()
-#List1.delete(30)
-#List1.print()
+List1.delete(30)
+List1.delete(888)
+List1.print()
 
 
 
