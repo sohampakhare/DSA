@@ -56,6 +56,8 @@ class SLL:
                 temp.next.prev=temp.prev
             temp=None
             print("value is deleted :-",val)
+
+
 #w.a.f to print node values of DLL in reverse order 
     def printrev(self):
         temp=self.head
@@ -66,6 +68,17 @@ class SLL:
             print(temp.data,end=" ")
             temp=temp.prev
 
+
+#write a f to count occurance of a given number in dll
+    def count(self,val):
+        temp=self.head
+        c=0
+        while(temp):
+            if temp.data==val:
+                c+=1
+          
+            temp=temp.next
+        print("total count is",c)
 
 
 
@@ -84,6 +97,7 @@ List1.append(n2)
 List1.append(Node(30))
 List1.append(Node(40))
 List1.append(Node(50))
+List1.append(Node(50))
 List1.insert(Node(555),1)
 List1.insert(Node(111),3)
 List1.insert(Node(888),10)
@@ -93,6 +107,7 @@ List1.delete(30)
 List1.delete(888)
 
 List1.print()
+List1.count(99)
 List1.printrev()
 
 
