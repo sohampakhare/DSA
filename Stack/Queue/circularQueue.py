@@ -19,13 +19,13 @@ class CQueue:
         self.rear.next=self.front  # this line  for adding circular Queue
 
     def dequeue(self):
-        if self.rear:
+        if self.front:
             temp=self.front
             self.front=self.front.next
             print("delete ",temp.data)
             temp=None
-            if self.front==None:
-                self.rear=None
+            if self.front==self.rear:# update foe circular
+                self.rear=self.front=None
                 print("now Queue is empty")
                 return
             self.rear.next=self.front
@@ -33,3 +33,28 @@ class CQueue:
            
         else:
             print("Queue is empty ")
+
+    def print(self):
+
+        temp=self.front
+        print("printing Linear Queue : - ",end=' ')
+        while True:
+            print(temp.data,end="  ")
+            temp=temp.next
+            if temp==self.front:
+                break
+
+        print()
+
+q=CQueue()
+q.enqueue(Node(20))
+q.enqueue(Node(30))
+q.enqueue(Node(40))
+q.print()
+q.dequeue()
+q.dequeue()
+q.dequeue()
+q.enqueue(Node(20))
+q.enqueue(Node(30))
+q.enqueue(Node(40))
+q.print()
