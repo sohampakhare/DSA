@@ -23,10 +23,13 @@ class CQueue:
             temp=self.front
             self.front=self.front.next
             print("delete ",temp.data)
+            temp=None
             if self.front==None:
                 self.rear=None
                 print("now Queue is empty")
-            temp=None
+                return
+            self.rear.next=self.front
+            
            
         else:
             print("Queue is empty ")
