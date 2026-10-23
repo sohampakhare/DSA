@@ -19,16 +19,20 @@ class CQueue:
         self.rear.next=self.front  # this line  for adding circular Queue
 
     def dequeue(self):
-        if self.front:
+        if self.front: #at leas on enod for circular
             temp=self.front
-            self.front=self.front.next
-            print("delete ",temp.data)
-            temp=None
+            
+          
             if self.front==self.rear:# update foe circular
                 self.rear=self.front=None
                 print("now Queue is empty")
                 return
-            self.rear.next=self.front
+            else:
+                self.front=self.front.next
+                print("delete ",temp.data)
+
+                self.rear.next=self.front
+            temp=None
             
            
         else:
