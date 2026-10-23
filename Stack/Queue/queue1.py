@@ -48,11 +48,15 @@ q.dequeue()
 q.enqueue(Node(10))
 q.enqueue(Node(20))
 q.enqueue(Node(30))
+
+q.print()
+q.dequeue()
+q.dequeue()
+q.dequeue()
+q.dequeue()
 q.enqueue(Node(40))
 q.enqueue(Node(66))
 q.enqueue(Node(77))
-q.print()
-q.dequeue()
 q.print()
 
 
