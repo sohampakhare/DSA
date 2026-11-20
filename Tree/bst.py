@@ -30,4 +30,11 @@ class BST:
                         return
                     else:
                         temp=temp.right
-            
+    def inorder(self,rt):
+        if rt is None:
+            return
+        else:
+            self.inorder(rt.left)
+            print(rt.data,end=" ")
+            self.inorder(rt.right)
+                  
