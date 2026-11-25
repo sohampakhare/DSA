@@ -7,8 +7,11 @@ class Node:
 
 
 class BST:
+    cnt=0
+    bnt=0
     def __init__(self):
         self.root=None
+        
 
     def insert(self,new_node):
         if self.root is None:#BST is empty
@@ -35,9 +38,10 @@ class BST:
             return
         else:
             self.inorder(rt.left)
+  
             print(rt.data,end=" ")
             self.inorder(rt.right)
-    
+        
 
     def preorder(self,rt):
         if rt is None:
@@ -68,6 +72,45 @@ class BST:
         print("\nmax : ",temp.data)
 
 
+    def search(self,key):
+        temp=self.root
+        while temp:
+            if temp.data==key:
+                return True
+            elif key<temp.data:
+                temp=temp.left
+            else:
+                temp=temp.right
+        return False
+
+
+
+#count only leaf node 
+    def counetleafnod(self,rt):
+        if rt is None:
+            return
+        else:
+            self.counetleafnod(rt.left)
+            if rt.left is None and rt.right is None:
+                self.cnt+=1
+          
+            self.counetleafnod(rt.right)
+
+#count only noty leaf node 
+    def counetnotleafnod(self,rt):
+        if rt is None:
+            return
+        else:
+            self.counetnotleafnod(rt.left)
+            if rt.left is not None or rt.right is not None:
+                self.bnt+=1
+          
+            self.counetnotleafnod(rt.right)
+
+
+
+
+
 
 
 
@@ -80,11 +123,29 @@ b1.insert(Node(450))
 b1.insert(Node(5))   
 b1.insert(Node(65))   
 b1.insert(Node(300))
+b1.insert(Node(68))   
+b1.insert(Node(0))
 
 print("\ninorder")
-b1.inorder(b1.root)  
-print("\npreorder") 
+b1.inorder(b1.root) 
+
+b1.counetleafnod(b1.root)
+print("leafcount is : ",b1.cnt)
+
+b1.counetnotleafnod(b1.root)
+print("not leaf nodecount is : ",b1.cnt)
+
+
+
+'''print("\ninorder")
+b1.inorder(b1.root)  '''
+'''print("\npreorder") 
 b1.preorder(b1.root)
 print("\npostorder")
 b1.postorder(b1.root)
-b1.findminmax()
+b1.findminmax()'''
+
+'''if b1.search(61):
+    print("\n Found the Node")
+else:
+    print("\n NOt found")'''
