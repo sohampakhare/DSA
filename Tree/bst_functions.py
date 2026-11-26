@@ -91,6 +91,31 @@ class BST:
             temp = temp.left
         return temp
 
+    def level_order(self,rt):
+        if rt is None:
+            print("BST is empty!")
+            return
+
+        arr = []
+        count = 0
+
+        arr.append(rt)
+
+        while count < len(arr):
+            temp = arr[count]
+            count+=1
+            print(f"level {count} : {temp.data}",end=" ")
+            if temp.left:
+                arr.append(temp.left)
+            if temp.right:
+                arr.append(temp.right)
+
+        print("-----------------------------")
+
+
+
+
+
 b1 = BST()
 b1.insert(Node(100))
 b1.insert(Node(10))
@@ -107,6 +132,8 @@ b1.preorder(b1.root)
 print("\nPostorder:")
 b1.postorder(b1.root)
 print()
+print("------")
+b1.level_order(b1.root)
 b1.findminmax(b1.root)
 
 b1.del_node(b1.root, 10)
