@@ -98,18 +98,23 @@ class BST:
 
         arr = []
         count = 0
+        level=0
 
         arr.append(rt)
 
         while count < len(arr):
-            temp = arr[count]
-            count+=1
-            print(f"level {count} : {temp.data}",end=" ")
-            if temp.left:
-                arr.append(temp.left)
-            if temp.right:
-                arr.append(temp.right)
-
+            node_count=len(arr)-count #for count of level wise element
+            print(" level no ",level,end=" : ")
+            for i in range(node_count):#printing level and its element
+                
+                temp = arr[count]
+                count+=1
+                print(temp.data,end="   ")
+                if temp.left:
+                    arr.append(temp.left)
+                if temp.right:
+                    arr.append(temp.right)
+            level +=1
         print("-----------------------------")
 
 
@@ -120,8 +125,9 @@ b1 = BST()
 b1.insert(Node(100))
 b1.insert(Node(10))
 b1.insert(Node(450))
-b1.insert(Node(0))
-b1.insert(Node(65))
+b1.insert(Node(2))
+b1.insert(Node(7))
+b1.insert(Node(4))
 b1.insert(Node(300))
 b1.insert(Node(500))
 
